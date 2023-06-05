@@ -1,6 +1,6 @@
-import ReactECharts from 'echarts-for-react';
-import * as echarts from 'echarts';
 import { useEffect, useState } from 'react';
+import * as echarts from 'echarts';
+import ReactECharts from 'echarts-for-react';
 import { fetchCSV, clearData } from '../../utils';
 import { ACH, C98, UNFI } from './selectData';
 
@@ -17,7 +17,7 @@ function RevenueChart() {
 
   const option = {
     title: {
-      text: '小时级收益率',
+      text: '累计收益率（小时级）',
     },
     tooltip: {
       trigger: 'axis',
@@ -61,7 +61,7 @@ function RevenueChart() {
     <ReactECharts
       echarts={echarts}
       option={option}
-      style={{ height: '600px' }}
+      style={{ height: '500px' }}
     />
   );
 }
