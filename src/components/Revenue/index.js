@@ -1,55 +1,20 @@
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts';
 import { useEffect, useState } from 'react';
-import Papa from 'papaparse';
-import ACH from '../../data/ACH-USDT.csv';
-import C98 from '../../data/C98-USDT.csv';
-import UNFI from '../../data/UNFI-USDT.csv';
+import { fetchCSV, clearData } from '../../utils';
+import { ACH, C98, UNFI } from './selectData';
 
 function RevenueChart() {
-  const [data1, setData1] = useState([]);
-  const [data2, setData2] = useState([]);
-  const [data3, setData3] = useState([]);
+  const [ACHData, setACHData] = useState();
+  const [C98Data, setC98Data] = useState();
+  const [UNFIData, setUNFIData] = useState();
 
   useEffect(() => {
-    fetch(ACH)
-      .then((response) => response.text())
-      .then((data) => {
-        const jsonData = Papa.parse(data, { header: true });
-        setData1(jsonData.data);
-      });
-    fetch(C98)
-      .then((response) => response.text())
-      .then((data) => {
-        const jsonData = Papa.parse(data, { header: true });
-        setData2(jsonData.data);
-      });
-    fetch(UNFI)
-      .then((response) => response.text())
-      .then((data) => {
-        const jsonData = Papa.parse(data, { header: true });
-        setData3(jsonData.data);
-      });
+    fetchCSV(ACH).then((data) => setACHData(clearData(data)));
+    fetchCSV(C98).then((data) => setC98Data(clearData(data)));
+    fetchCSV(UNFI).then((data) => setUNFIData(clearData(data)));
   }, []);
 
-  let revenueRateList1 = [];
-  let dateList1 = [];
-  data1.forEach((item) => {
-    revenueRateList1.push(item.revenueRate);
-    dateList1.push(item.date);
-  });
-  let revenueRateList2 = [];
-  let dateList2 = [];
-  data2.forEach((item) => {
-    revenueRateList2.push(item.revenueRate);
-    dateList2.push(item.date);
-  });
-  let revenueRateList3 = [];
-  let dateList3 = [];
-  data3.forEach((item) => {
-    revenueRateList3.push(item.revenueRate);
-    dateList3.push(item.date);
-  });
   const option = {
     title: {
       text: '小时级收益率',
@@ -57,18 +22,18 @@ function RevenueChart() {
     tooltip: {
       trigger: 'axis',
     },
-    legend: {
-      data: ['ACH', 'C98', 'UNFI'],
-    },
     grid: {
       left: '3%',
       right: '4%',
       bottom: '3%',
       containLabel: true,
     },
+    legend: {
+      data: ['ACH', 'C98', 'UNFI'],
+    },
     xAxis: {
       type: 'category',
-      data: dateList1,
+      data: ACHData?.dateList,
     },
     yAxis: {
       type: 'value',
@@ -77,17 +42,17 @@ function RevenueChart() {
       {
         name: 'ACH',
         type: 'line',
-        data: revenueRateList1,
+        data: ACHData?.revenueRateList,
       },
       {
         name: 'C98',
         type: 'line',
-        data: revenueRateList2,
+        data: C98Data?.revenueRateList,
       },
       {
         name: 'UNFI',
         type: 'line',
-        data: revenueRateList3,
+        data: UNFIData?.revenueRateList,
       },
     ],
   };
@@ -96,7 +61,7 @@ function RevenueChart() {
     <ReactECharts
       echarts={echarts}
       option={option}
-      style={{ height: '400px' }}
+      style={{ height: '600px' }}
     />
   );
 }
