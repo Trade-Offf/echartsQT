@@ -3,80 +3,53 @@ import * as echarts from 'echarts';
 import ReactECharts from 'echarts-for-react';
 import { fetchCSV, clearData } from '../../utils';
 import {
-  AR,
-  ARB,
-  BAND,
-  CHR,
   CTK,
-  FIL,
-  GMT,
-  IOTA,
-  IOTX,
-  LINK,
+  DOGE,
+  EDU,
+  FXS,
+  LDO,
   LPT,
-  MASK,
-  MKR,
-  OCEAN,
-  PERP,
-  REEF,
-  RLC,
+  PEOPLE,
+  ROSE,
   RUNE,
-  SAND,
-  SFP,
-  THETA,
-  ZEC,
-  ZEN,
+  SKL,
+  SNX,
+  SSV,
+  STMX,
+  ZRX,
 } from './selectData';
 
 function RevenueChart() {
-  const [ARData, setARData] = useState();
-  const [ARBData, setARBData] = useState();
-  const [BANDData, setBANDData] = useState();
-  const [CHRData, setCHRData] = useState();
+  const [DOGEData, setDOGEData] = useState();
+  const [EDUData, setEDUData] = useState();
+  const [FXSData, setFXSData] = useState();
+  const [LDOData, setLDOData] = useState();
+  const [PEOPLEData, setPEOPLEData] = useState();
+  const [ROSEData, setROSEData] = useState();
+  const [SKLData, setSKLData] = useState();
+  const [SNXData, setSNXData] = useState();
+  const [SSVData, setSSVData] = useState();
+  const [STMXData, setSTMXData] = useState();
+  const [ZRXData, setZRXData] = useState();
   const [CTKData, setCTKData] = useState();
-  const [FILData, setFILData] = useState();
-  const [GMTData, setGMTData] = useState();
-  const [IOTAData, setIOTAData] = useState();
-  const [IOTXData, setIOTXData] = useState();
-  const [LINKData, setLINKData] = useState();
   const [LPTData, setLPTData] = useState();
-  const [MASKData, setMASKData] = useState();
-  const [MKRData, setMKRData] = useState();
-  const [OCEANData, setOCEANData] = useState();
-  const [PERPData, setPERPData] = useState();
-  const [REEFData, setREEFData] = useState();
-  const [RLCData, setRLCData] = useState();
   const [RUNEData, setRUNEData] = useState();
-  const [SANDData, setSANDData] = useState();
-  const [SFPData, setSFPData] = useState();
-  const [THETAData, setTHETAData] = useState();
-  const [ZECData, setZECData] = useState();
-  const [ZENData, setZENData] = useState();
 
   useEffect(() => {
-    fetchCSV(AR).then((data) => setARData(clearData(data)));
-    fetchCSV(ARB).then((data) => setARBData(clearData(data)));
-    fetchCSV(BAND).then((data) => setBANDData(clearData(data)));
-    fetchCSV(CHR).then((data) => setCHRData(clearData(data)));
     fetchCSV(CTK).then((data) => setCTKData(clearData(data)));
-    fetchCSV(FIL).then((data) => setFILData(clearData(data)));
-    fetchCSV(GMT).then((data) => setGMTData(clearData(data)));
-    fetchCSV(IOTA).then((data) => setIOTAData(clearData(data)));
-    fetchCSV(IOTX).then((data) => setIOTXData(clearData(data)));
-    fetchCSV(LINK).then((data) => setLINKData(clearData(data)));
+    fetchCSV(DOGE).then((data) => setDOGEData(clearData(data)));
+    fetchCSV(EDU).then((data) => setEDUData(clearData(data)));
+    fetchCSV(FXS).then((data) => setFXSData(clearData(data)));
+    fetchCSV(LDO).then((data) => setLDOData(clearData(data)));
     fetchCSV(LPT).then((data) => setLPTData(clearData(data)));
-    fetchCSV(MASK).then((data) => setMASKData(clearData(data)));
-    fetchCSV(MKR).then((data) => setMKRData(clearData(data)));
-    fetchCSV(OCEAN).then((data) => setOCEANData(clearData(data)));
-    fetchCSV(PERP).then((data) => setPERPData(clearData(data)));
-    fetchCSV(REEF).then((data) => setREEFData(clearData(data)));
-    fetchCSV(RLC).then((data) => setRLCData(clearData(data)));
+    fetchCSV(PEOPLE).then((data) => setPEOPLEData(clearData(data)));
+    fetchCSV(ROSE).then((data) => setROSEData(clearData(data)));
     fetchCSV(RUNE).then((data) => setRUNEData(clearData(data)));
-    fetchCSV(SAND).then((data) => setSANDData(clearData(data)));
-    fetchCSV(SFP).then((data) => setSFPData(clearData(data)));
-    fetchCSV(THETA).then((data) => setTHETAData(clearData(data)));
-    fetchCSV(ZEC).then((data) => setZECData(clearData(data)));
-    fetchCSV(ZEN).then((data) => setZENData(clearData(data)));
+    fetchCSV(SKL).then((data) => setSKLData(clearData(data)));
+    fetchCSV(SNX).then((data) => setSNXData(clearData(data)));
+    fetchCSV(SSV).then((data) => setSSVData(clearData(data)));
+    fetchCSV(STMX).then((data) => setSTMXData(clearData(data)));
+    fetchCSV(ZRX).then((data) => setZRXData(clearData(data)));
   }, []);
 
   const option = {
@@ -94,88 +67,54 @@ function RevenueChart() {
     },
     legend: {
       data: [
-        'AR',
-        'ARB',
-        'BAND',
-        'CHR',
         'CTK',
-        'FIL',
-        'GMT',
-        'IOTA',
-        'IOTX',
-        'LINK',
+        'DOGE',
+        'EDU',
+        'FXS',
+        'LDO',
         'LPT',
-        'MASK',
-        'MKR',
-        'OCEAN',
-        'PERP',
-        'REEF',
-        'RLC',
+        'PEOPLE',
+        'ROSE',
         'RUNE',
-        'SAND',
-        'SFP',
-        'THETA',
-        'ZEC',
-        'ZEN',
+        'SKL',
+        'SNX',
+        'SSV',
+        'STMX',
+        'ZRX',
       ],
     },
     xAxis: {
       type: 'category',
-      data: ARData?.dateList,
+      data: CTKData?.dateList,
     },
     yAxis: {
       type: 'value',
     },
     series: [
       {
-        name: 'AR',
-        type: 'line',
-        data: ARData?.revenueRateList,
-      },
-      {
-        name: 'ARB',
-        type: 'line',
-        data: ARBData?.revenueRateList,
-      },
-      {
-        name: 'BAND',
-        type: 'line',
-        data: BANDData?.revenueRateList,
-      },
-      {
-        name: 'CHR',
-        type: 'line',
-        data: CHRData?.revenueRateList,
-      },
-      {
         name: 'CTK',
         type: 'line',
         data: CTKData?.revenueRateList,
       },
       {
-        name: 'FIL',
+        name: 'DOGE',
         type: 'line',
-        data: FILData?.revenueRateList,
+        data: DOGEData?.revenueRateList,
       },
       {
-        name: 'GMT',
+        name: 'EDU',
         type: 'line',
-        data: GMTData?.revenueRateList,
+        data: EDUData?.revenueRateList,
       },
       {
-        name: 'IOTA',
+        name: 'FXS',
         type: 'line',
-        data: IOTAData?.revenueRateList,
+        data: FXSData?.revenueRateList,
       },
       {
-        name: 'IOTX',
+        name: 'LDO',
         type: 'line',
-        data: IOTXData?.revenueRateList,
-      },
-      {
-        name: 'LINK',
-        type: 'line',
-        data: LINKData?.revenueRateList,
+        data: LDOData?.revenueRateList,
       },
       {
         name: 'LPT',
@@ -183,34 +122,14 @@ function RevenueChart() {
         data: LPTData?.revenueRateList,
       },
       {
-        name: 'MASK',
+        name: 'PEOPLE',
         type: 'line',
-        data: MASKData?.revenueRateList,
+        data: PEOPLEData?.revenueRateList,
       },
       {
-        name: 'MKR',
+        name: 'ROSE',
         type: 'line',
-        data: MKRData?.revenueRateList,
-      },
-      {
-        name: 'OCEAN',
-        type: 'line',
-        data: OCEANData?.revenueRateList,
-      },
-      {
-        name: 'PERP',
-        type: 'line',
-        data: PERPData?.revenueRateList,
-      },
-      {
-        name: 'REEF',
-        type: 'line',
-        data: REEFData?.revenueRateList,
-      },
-      {
-        name: 'RLC',
-        type: 'line',
-        data: RLCData?.revenueRateList,
+        data: ROSEData?.revenueRateList,
       },
       {
         name: 'RUNE',
@@ -218,29 +137,29 @@ function RevenueChart() {
         data: RUNEData?.revenueRateList,
       },
       {
-        name: 'SAND',
+        name: 'SKL',
         type: 'line',
-        data: SANDData?.revenueRateList,
+        data: SKLData?.revenueRateList,
       },
       {
-        name: 'SFP',
+        name: 'SNX',
         type: 'line',
-        data: SFPData?.revenueRateList,
+        data: SNXData?.revenueRateList,
       },
       {
-        name: 'THETA',
+        name: 'SSV',
         type: 'line',
-        data: THETAData?.revenueRateList,
+        data: SSVData?.revenueRateList,
       },
       {
-        name: 'ZEC',
+        name: 'STMX',
         type: 'line',
-        data: ZECData?.revenueRateList,
+        data: STMXData?.revenueRateList,
       },
       {
-        name: 'ZEN',
+        name: 'ZRX',
         type: 'line',
-        data: ZENData?.revenueRateList,
+        data: ZRXData?.revenueRateList,
       },
     ],
   };
