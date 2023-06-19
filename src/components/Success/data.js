@@ -1,0 +1,122 @@
+// 用法：把接口的数据复制到这里
+const data = {
+  traceId: 'c0deef6216868989298271010da641',
+  code: 200,
+  data: {
+    consistencyDataKey: '_isReady',
+    data: [
+      {
+        date: 1685059200000,
+        rate: 0.9816169908977334,
+        count: 5603,
+        fail_uv: 57,
+      },
+      {
+        date: 1685145600000,
+        rate: 0.9922480620155039,
+        count: 1806,
+        fail_uv: 14,
+      },
+      {
+        date: 1685232000000,
+        rate: 0.9861218195836546,
+        count: 1297,
+        fail_uv: 11,
+      },
+      {
+        date: 1685318400000,
+        rate: 0.9839533187454412,
+        count: 1371,
+        fail_uv: 17,
+      },
+      {
+        date: 1685404800000,
+        rate: 0.9929351316634554,
+        count: 1557,
+        fail_uv: 10,
+      },
+      {
+        date: 1685491200000,
+        rate: 0.9905320108205591,
+        count: 2218,
+        fail_uv: 14,
+      },
+      {
+        date: 1685577600000,
+        rate: 0.9779234218696102,
+        count: 2899,
+        fail_uv: 29,
+      },
+      {
+        date: 1685664000000,
+        rate: 0.9895070766227428,
+        count: 4098,
+        fail_uv: 34,
+      },
+      {
+        date: 1685750400000,
+        rate: 0.9893911439114391,
+        count: 2168,
+        fail_uv: 14,
+      },
+      {
+        date: 1685836800000,
+        rate: 0.9872340425531915,
+        count: 1645,
+        fail_uv: 11,
+      },
+      {
+        date: 1685923200000,
+        rate: 0.9867052023121388,
+        count: 1730,
+        fail_uv: 20,
+      },
+      {
+        date: 1686009600000,
+        rate: 0.9912711402073104,
+        count: 1833,
+        fail_uv: 11,
+      },
+      {
+        date: 1686096000000,
+        rate: 0.9902002556455048,
+        count: 2347,
+        fail_uv: 18,
+      },
+      {
+        date: 1686182400000,
+        rate: 0.9890350877192983,
+        count: 2736,
+        fail_uv: 25,
+      },
+      {
+        date: 1686268800000,
+        rate: 0.9859525899912204,
+        count: 1139,
+        fail_uv: 11,
+      },
+      {
+        date: 1686355200000,
+        rate: 0.9793438639125152,
+        count: 823,
+        fail_uv: 13,
+      },
+      { date: 1686441600000, rate: 0.9858156028368794, count: 564, fail_uv: 7 },
+      { date: 1686528000000, rate: 0.9860031104199067, count: 643, fail_uv: 6 },
+      { date: 1686614400000, rate: 0.9834710743801653, count: 242, fail_uv: 4 },
+    ],
+    debugInfos: { infos: [] },
+    sqlDiagnose: false,
+    intervalInSec: 86400,
+    success: true,
+    consistencyQueryStrategy: 'NONE',
+    resultSize: 0,
+    actualSizeFromDB: 0,
+    dataSource: 'SLS',
+    successful: true,
+  },
+  success: true,
+  message: 'success',
+};
+
+export default data.data.data;

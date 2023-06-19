@@ -34,6 +34,8 @@ function RevenueChart() {
   const [CTKData, setCTKData] = useState();
   const [LPTData, setLPTData] = useState();
   const [RUNEData, setRUNEData] = useState();
+  console.log('54',DOGEData);
+
 
   useEffect(() => {
     fetchCSV(CTK).then((data) => setCTKData(clearData(data)));
