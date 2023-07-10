@@ -1,6 +1,6 @@
 import React from 'react';
 import data from './data.js';
-import * as echarts from 'echarts';
+// import * as echarts from 'echarts';
 import ReactECharts from 'echarts-for-react';
 
 // 接口失败率（图 + 折线）
@@ -95,7 +95,7 @@ function Success() {
 
   return (
     <ReactECharts
-      echarts={echarts}
+      // echarts={echarts}
       option={option}
       style={{ height: '400px' }}
     />

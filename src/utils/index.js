@@ -13,17 +13,3 @@ export function fetchCSV(path) {
     });
 }
 
-/**
- * 处理单个币种的数据
- * @param {string} type
- */
-export function clearData(data) {
-  let revenueRateList = [];
-  let dateList = [];
-  data.forEach((item) => {
-    revenueRateList.push(item.revenueRate);
-    dateList.push(item.date);
-  });
-
-  return { revenueRateList, dateList };
-}
